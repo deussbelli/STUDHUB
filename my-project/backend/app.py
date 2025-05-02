@@ -66,7 +66,7 @@ def init_db():
 CLIENT_ID = ""     # приклад
 CLIENT_SECRET = ""  # приклад
 TENANT_ID = ""    # приклад
-REDIRECT_URI = "http://localhost:5000/auth/azure/callback"
+REDIRECT_URI = ""
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 SCOPE = ["User.Read"]
 
