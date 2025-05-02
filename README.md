@@ -1,4 +1,4 @@
-# StudHub Project
+# StudHub
 ---
 StudHub is a web platform for students, applicants, and university staff to share feedback, post forum topics, submit requests, and stay updated with news and academic rules.
 It is designed to improve communication, transparency, and integrity within the educational community.
