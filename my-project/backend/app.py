@@ -28,8 +28,8 @@ from models import db, User, NewsItem
 # Замініть на свої реальні дані
 SMTP_HOST = "smtp.gmail.com"       # або інший хост, якщо не Gmail
 SMTP_PORT = 465                    # 465 для SSL; 587 для TLS
-SMTP_USER = "rrrivman@gmail.com"   # замініть на свій емейл
-SMTP_PASSWORD = "snpj eelr snyj deho"
+SMTP_USER = ""   # замініть на свій емейл
+SMTP_PASSWORD = ""
 
 
 UPLOAD_FOLDER = r"E:\Repos\TS\my-project\temp"  # куди зберігати файли
@@ -63,9 +63,9 @@ def init_db():
 # ------------------------
 # Налаштування для Azure AD (спростена версія)
 # ------------------------
-CLIENT_ID = "f863a945-4655-4b9c-915a-df4efa0139e0"     # приклад
-CLIENT_SECRET = "Rfe8Q~QLwd6P16csd6BdhBjtm83G2wXLa2vrTbex"  # приклад
-TENANT_ID = "5065d102-3127-4ad5-b4cd-331de41ef39c"    # приклад
+CLIENT_ID = ""     # приклад
+CLIENT_SECRET = ""  # приклад
+TENANT_ID = ""    # приклад
 REDIRECT_URI = "http://localhost:5000/auth/azure/callback"
 AUTHORITY = f"https://login.microsoftonline.com/{TENANT_ID}"
 SCOPE = ["User.Read"]
