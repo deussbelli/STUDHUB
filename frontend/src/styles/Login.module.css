@@ -1,0 +1,321 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Забезпечує коректне позиціонування */
+  width: 100vw; 
+  top: 60px;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 200, 100, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(100, 200, 255, 0.1) 0%, transparent 50%);
+  z-index: 0;
+  animation: gradientRotate 20s linear infinite reverse;
+}
+
+@keyframes gradientRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 1;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, rgba(74, 107, 255, 0.1), rgba(255, 107, 107, 0.1));
+  border-radius: 0 0 0 100%;
+  z-index: -1;
+}
+
+.card:hover {
+  transform: translateY(-5px) rotateX(-1deg) rotateY(1deg);
+  box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  background: linear-gradient(90deg, #ff6b6b, #4a6bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 10px rgba(255, 107, 107, 0.3); }
+  100% { text-shadow: 0 0 20px rgba(74, 107, 255, 0.4); }
+}
+
+.header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.inputGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+  transform: translateY(-2px);
+}
+
+.primaryButton {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff6b6b, #4a6bff);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(74, 107, 255, 0.4);
+}
+
+.primaryButton:hover::before {
+  left: 100%;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  color: #999;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+}
+
+.divider span {
+  padding: 0 1rem;
+}
+
+.ssoButton {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #4a6bff;
+  border-radius: 12px;
+  background: transparent;
+  color: #4a6bff;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ssoButton:hover {
+  background: rgba(74, 107, 255, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(74, 107, 255, 0.1);
+}
+
+.ssoIcon {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.link {
+  color: #4a6bff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.link:hover {
+  color: #ff6b6b;
+  text-decoration: underline;
+}
+
+.separator {
+  color: #999;
+}
+
+/* Анімація для полів вводу */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.inputGroup:focus-within label {
+  animation: float 0.5s ease;
+}
+
+/* Стилі для повідомлення про авторизацію */
+.alreadyAuth {
+  text-align: center;
+  padding: 2rem;
+}
+
+.alreadyAuth p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.alreadyAuth button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #4a6bff, #6b4aff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.alreadyAuth button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(74, 107, 255, 0.3);
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+  }
+  
+  .header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .footer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .separator {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .inputGroup input {
+    padding: 0.8rem;
+  }
+  
+  .primaryButton,
+  .ssoButton {
+    padding: 0.8rem;
+  }
+}

@@ -1,0 +1,513 @@
+/* Основні стилі */
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Забезпечує коректне позиціонування */
+  width: 100vw; 
+}
+
+.pageContainer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.profileContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.profileContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, #6a11cb 0%, #2575fc 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  z-index: -1;
+  opacity: 0.1;
+}
+
+/* Заголовок */
+.profileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.profileTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2c3e50;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profileTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  border-radius: 2px;
+}
+
+.logoutButton {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 75, 43, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.logoutButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 75, 43, 0.4);
+}
+
+.logoutButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.logoutButton:hover::before {
+  left: 100%;
+}
+
+/* Помилки */
+.errorMessage {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 500;
+  border-left: 4px solid #dc3545;
+}
+
+/* Контент профілю */
+.profileContent {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Аватар секція */
+.avatarSection {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.avatarContainer {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 25px;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.avatarContainer::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  z-index: 0;
+  opacity: 0.5;
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.uploadLabel {
+  background: linear-gradient(135deg, #2575fc, #6a11cb);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(37, 117, 252, 0.3);
+  display: inline-block;
+}
+
+.uploadLabel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 117, 252, 0.4);
+}
+
+.fileInput {
+  display: none;
+}
+
+/* Баджі репутації та статусу */
+.reputationBadge {
+  margin-top: 25px;
+  background: linear-gradient(135deg, #fbc531, #e1b12c);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  color: #2f3640;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(251, 197, 49, 0.3);
+}
+
+.reputationScore {
+  font-size: 22px;
+  margin-right: 8px;
+}
+
+.statusBadge {
+  margin-top: 15px;
+  background: linear-gradient(135deg, #00b894, #00a884);
+  padding: 8px 20px;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
+}
+
+/* Інформаційна секція */
+.infoSection {
+  flex: 2;
+  min-width: 300px;
+}
+
+.infoGroup {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.infoLabel {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.infoInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.8);
+}
+
+.infoInput:focus {
+  border-color: #6a11cb;
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.1);
+  outline: none;
+}
+
+.infoText {
+  font-size: 16px;
+  color: #34495e;
+  padding: 10px 0;
+  border-bottom: 2px dashed #f1f1f1;
+}
+
+/* Секція активності */
+.activitySection {
+  margin-top: 40px;
+  background: rgba(241, 242, 246, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.activitySection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #6a11cb, #2575fc);
+}
+
+.activityTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+}
+
+.activityTitle::before {
+  content: "📊";
+  margin-right: 10px;
+}
+
+.activityStats {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.activityStat {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 100px;
+  flex: 1;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.activityStat:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.statNumber {
+  font-size: 24px;
+  font-weight: 800;
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.statLabel {
+  font-size: 13px;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Кнопки дій */
+.actionButtons {
+  margin-top: 40px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.editButton,
+.saveButton {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.saveButton {
+  background: linear-gradient(135deg, #00b894, #00997a);
+  box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+}
+
+.editButton:hover,
+.saveButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4);
+}
+
+.saveButton:hover {
+  box-shadow: 0 8px 25px rgba(0, 184, 148, 0.4);
+}
+
+.editButton::before,
+.saveButton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.editButton:hover::before,
+.saveButton:hover::before {
+  left: 100%;
+}
+
+/* Завантаження */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(106, 17, 203, 0.1);
+  border-top: 5px solid #6a11cb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.spinner::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 5px solid rgba(37, 117, 252, 0.1);
+  border-top: 5px solid #2575fc;
+  border-radius: 50%;
+  animation: spinReverse 1.5s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .profileContainer {
+    padding: 30px 20px;
+  }
+  
+  .profileContent {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .avatarSection {
+    align-items: center;
+  }
+  
+  .activityStats {
+    justify-content: center;
+  }
+  
+  .actionButtons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileHeader {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .profileTitle {
+    font-size: 1.8rem;
+  }
+  
+  .logoutButton {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .activityStat {
+    min-width: calc(50% - 10px);
+  }
+}

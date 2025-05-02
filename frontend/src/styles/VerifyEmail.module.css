@@ -1,0 +1,284 @@
+/* Основні стилі */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Забезпечує коректне позиціонування */
+  width: 100vw; 
+}
+
+.wrapper::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(255, 200, 100, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(100, 200, 255, 0.1) 0%, transparent 50%);
+  z-index: 0;
+  animation: gradientRotate 20s linear infinite reverse;
+}
+
+@keyframes gradientRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Контейнер верифікації */
+.verifyContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 1;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.verifyContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 35px 60px -15px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+/* Заголовок */
+.verifyHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.verifyTitle {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #ff6b6b, #4a6bff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 10px rgba(255, 107, 107, 0.3); }
+  100% { text-shadow: 0 0 20px rgba(74, 107, 255, 0.4); }
+}
+
+.verifySubtitle {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Форма верифікації */
+.verifyForm {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.formField {
+  position: relative;
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-left: 0.5rem;
+}
+
+.textInput {
+  width: 90%;
+  padding: 1rem 1.2rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: #ff6b6b;
+  box-shadow: 
+    0 0 0 3px rgba(255, 107, 107, 0.2),
+    0 3px 10px rgba(255, 107, 107, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Кнопка верифікації */
+.verifyButton {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff6b6b, #4a6bff);
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.verifyButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(74, 107, 255, 0.4);
+}
+
+.verifyButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Індикатор завантаження */
+.loadingSpinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Повідомлення про статус */
+.statusMessage {
+  padding: 1rem;
+  border-radius: 12px;
+  margin: 1rem 0;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.successMessage {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.errorMessage {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+/* Футер */
+.verifyFooter {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footerText {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.resendButton {
+  background: none;
+  border: none;
+  color: #4a6bff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.resendButton:hover {
+  background: rgba(74, 107, 255, 0.1);
+  color: #3a56d8;
+  text-decoration: underline;
+}
+
+/* Анімація для полів вводу */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.formField:focus-within .inputLabel {
+  animation: float 0.5s ease;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 1.5rem;
+  }
+  
+  .verifyContainer {
+    padding: 2rem 1.5rem;
+  }
+  
+  .verifyTitle {
+    font-size: 1.8rem;
+  }
+  
+  .verifySubtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: 1rem;
+  }
+  
+  .verifyContainer {
+    padding: 1.5rem 1.2rem;
+    border-radius: 16px;
+  }
+  
+  .verifyTitle {
+    font-size: 1.6rem;
+  }
+  
+  .textInput {
+    padding: 0.9rem 1rem;
+  }
+  
+  .verifyButton {
+    padding: 0.9rem;
+  }
+}

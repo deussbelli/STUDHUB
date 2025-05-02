@@ -1,0 +1,432 @@
+
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow-x: hidden;
+
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+      radial-gradient(circle at 20% 30%, rgba(100, 200, 255, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255, 150, 100, 0.1) 0%, transparent 40%);
+  z-index: 0;
+  animation: gradientMove 20s linear infinite alternate;
+}
+
+@keyframes gradientMove {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.newsContainer {
+  top: 70px;
+  left:350px;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+  max-width: none; /* Видалено обмеження максимальної ширини */
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newsContainer:hover {
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.2);
+}
+
+.newsContainer h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: transparent;
+  background: linear-gradient(90deg, #4a6bff, #ff6b6b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+.newsContainer h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #4a6bff, #ff6b6b);
+  border-radius: 2px;
+}
+
+.adminPanel {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.addButton, .parseButton {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.addButton {
+  background: linear-gradient(135deg, #4a6bff, #6b4aff);
+  color: white;
+}
+
+.parseButton {
+  background: linear-gradient(135deg, #ff6b6b, #ff8e4a);
+  color: white;
+}
+
+.addButton:hover, .parseButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.addButton:active, .parseButton:active {
+  transform: translateY(1px);
+}
+
+.formContainer {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%; /* Форма займає всю ширину newsContainer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+  width: 100%; /* Групи полів займають всю ширину форми */
+}
+
+.formGroup input, .formGroup textarea {
+  width: 100%; /* Поля вводу займають всю доступну ширину */
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+  text-align: center;
+}
+
+.formGroup input, .formGroup textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.formGroup textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.formGroup input:focus, .formGroup textarea:focus {
+  outline: none;
+  border-color: #4a6bff;
+  box-shadow: 0 0 0 3px rgba(74, 107, 255, 0.2);
+}
+
+.formButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.submitButton, .cancelButton {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #4a6bff, #6b4aff);
+  color: white;
+}
+
+.cancelButton {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(74, 107, 255, 0.3);
+}
+
+.cancelButton:hover {
+  background: #e2e8f0;
+}
+
+.newsList {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  justify-items: center;
+}
+
+.newsItem {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 800px;
+}
+
+.newsItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #4a6bff, #ff6b6b);
+}
+
+.newsItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.newsItem h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.newsContent {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.newsMetaInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.newsSource {
+  background: #f1f5f9;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+}
+
+.newsDate {
+  background: #e6f0ff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+}
+
+.newsLink {
+  color: #4a6bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.newsLink:hover {
+  color: #ff6b6b;
+  text-decoration: underline;
+}
+
+.newsActions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.editButton, .deleteButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.editButton {
+  background: #e6f0ff;
+  color: #4a6bff;
+}
+
+.deleteButton {
+  background: #ffebee;
+  color: #ff5252;
+}
+
+.editButton:hover {
+  background: #d0e1ff;
+}
+
+.deleteButton:hover {
+  background: #ffd5d5;
+}
+
+.loader, .error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #555;
+  width: 100%;
+}
+
+.error {
+  color: #ff5252;
+}
+
+/* Анімації */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.newsItem {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.newsItem:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.newsItem:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .container {
+      padding: 1rem;
+  }
+  
+  .newsContainer {
+      padding: 1.5rem;
+      width: 95%;
+  }
+  
+  .newsContainer h1 {
+      font-size: 2rem;
+  }
+  
+  .adminPanel {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .formButtons {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .submitButton, .cancelButton {
+      width: 100%;
+      max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsContainer {
+      padding: 1rem;
+      border-radius: 16px;
+  }
+  
+  .newsContainer h1 {
+      font-size: 1.8rem;
+  }
+  
+  .newsItem {
+      padding: 1.5rem;
+  }
+  
+  .newsItem h2 {
+      font-size: 1.3rem;
+  }
+  
+  .newsMetaInfo {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+  }
+  
+  .newsActions {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .editButton, .deleteButton {
+      width: 100%;
+  }
+}
